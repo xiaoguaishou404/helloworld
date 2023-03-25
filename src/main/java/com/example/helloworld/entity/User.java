@@ -1,4 +1,4 @@
-package com.example.helloworld.controller;
+package com.example.helloworld.entity;
 
 public class User {
     private String name;
