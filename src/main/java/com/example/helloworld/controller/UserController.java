@@ -1,10 +1,12 @@
 package com.example.helloworld.controller;
 
 import com.example.helloworld.entity.User;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class UserController {
+    @ApiOperation("获取用户")
     @GetMapping("/user/{id}")
     public String getUserById(@PathVariable int id) {
         return "Hello World, User ID: " + id;
