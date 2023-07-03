@@ -2,19 +2,21 @@ package com.example.helloworld.entity;
 
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
+import java.util.List;
 
-//@TableName(value = "user")  当类名与表明不一致时，修改mybatis-plus表名的绑定
-
+@TableName(value = "t_user")
 public class User {
-
-    // @TableId(type = IdType.AUTO)  mybatis-plus设置主键字段
+    @TableId(type = IdType.AUTO)
     private int id;
     private String username;
     private String password;
     private String birthday;
+    @TableField(exist = false)
+    private List<Order> orders;
 
     public int getId() {
         return id;
@@ -48,6 +50,14 @@ public class User {
         this.birthday = birthday;
     }
 
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -55,6 +65,7 @@ public class User {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", birthday='" + birthday + '\'' +
+                ", orders=" + orders +
                 '}';
     }
 }
